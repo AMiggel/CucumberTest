@@ -30,29 +30,5 @@ public class registroStep {
     	driver.get("http://sdettraining.com/trguitransactions/NewAccount.aspx");
     }
 	
-	@When("el usuario ingresa sus datos")
-    public void usuarioIngresaSusDastos () {
-    	driver.findElement(By.id("MainContent_txtFirstName")).sendKeys("Brayan David Torres Suarez");
-    	driver.findElement(By.id("MainContent_txtEmail")).sendKeys("brayantorres@unac.edu.co");
-    	driver.findElement(By.id("MainContent_txtHomePhone")).sendKeys("3012363749");
-    	driver.findElement(By.id("MainContent_Male")).click();
-    	driver.findElement(By.id("MainContent_txtPassword")).sendKeys("asd$123");
-    	driver.findElement(By.id("MainContent_txtVerifyPassword")).sendKeys("asd$123");
-    	
-    	Select dropdown = new Select(driver.findElement(By.id("MainContent_menuCountry")));
-    	dropdown.selectByValue("Ecuador");
-    	
-    	driver.findElement(By.id("MainContent_checkMonthlyEmail")).click();
-    	
-    	driver.findElement(By.id("MainContent_btnSubmit")).click();
-    }
-	
-	@Then("el usuario debe ser registrado")
-    public void usuarioDebeEstarRegistrado () {
-    	String texto = driver.findElement(By.id("MainContent_lblTransactionResult")).getText();
-    	
-		assertTrue(texto.contains("Customer information added succesfully"));
-    }
-	
 
 }
